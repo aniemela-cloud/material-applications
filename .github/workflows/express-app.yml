@@ -9,7 +9,7 @@ on:
             - '.github/workflows/express-app.yml'
 defaults:
     run:
-        working-directory: express-app
+        working-directory: ./express-app
 jobs:
     build:
         name: Build
@@ -33,7 +33,7 @@ jobs:
             - name: Docker build and push
               uses: docker/build-push-action@v6
               with:
-                context: .
+                context: ./express-app
                 push: true
                 tags: ${{ vars.DOCKERHUB_USERNAME }}/express-app-pipeline:latest
 
